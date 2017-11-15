@@ -1,6 +1,6 @@
 node {
-  stage 'build app'
-  openshiftBuild(namespace: 'demo', buildConfig: 'welcome', showBuildLogs: 'true')
+  //stage 'build app'
+  //openshiftBuild(namespace: 'demo', buildConfig: 'welcome', showBuildLogs: 'true')
   stage 'execute image scan'
     openshift.withCluster() {
 	def models = openshift.process( "demo//image-inspector-template", "-p", "APPLICATION_NAME=image-inspector", "-p", "IMAGE_URL=docker-registry-default.apps.demo.openshift.fr/demo/welcome:latest")
